@@ -1,0 +1,114 @@
+#myNavElements {
+	margin-top: 1.8%;
+	text-transform: uppercase;
+}
+
+.videoHeader{
+	max-height: 50%;
+	margin-bottom: -0.4%;
+}
+
+.videoHeader #videoHeaderTitle{
+	position: absolute;
+	top: 40%;
+	width: 100%;
+	font-size: 36px;
+	letter-spacing: 3px;
+	color: #fff;
+	text-align: center;
+}
+
+.videoHeader #video{
+	position: relative;
+	z-index: -100;
+}
+
+
+#aboutPartOne, #aboutPartTwo{
+	padding: 5%;
+  padding-top: 6%;
+}
+
+#ourTeam {
+  padding: 5%;
+  padding-top: 3%;
+}
+
+#eventPartOne {
+  padding-top: 5%;
+  padding-left: 5%;
+}
+
+#eventPartTwo {
+  padding: 5%;
+  padding-top: 8%;
+}
+
+#lastEvent {
+	padding: 5%;
+}
+
+#academy{
+	padding:10%;
+	padding-top: 5%;
+}
+
+#services{
+  padding-top: 5%;
+}
+
+.course{
+	margin : 0 0 2em 0;
+	border-bottom: 1px solid #149a29;
+	padding-bottom: 1em;
+}
+
+
+time.icon
+{
+  font-size: 1em; /* change icon size */
+  display: block;
+  position: relative;
+  width: 7em;
+  height: 7em;
+  background-color: #fff;
+  border-radius: 0.6em;
+  box-shadow: 0 1px 0 #bdbdbd, 0 2px 0 #fff, 0 3px 0 #bdbdbd, 0 4px 0 #fff, 0 5px 0 #bdbdbd, 0 0 0 1px #bdbdbd;
+  overflow: hidden;
+}
+
+time.icon *
+{
+  display: block;
+  width: 100%;
+  font-size: 1em;
+  font-weight: bold;
+  font-style: normal;
+  text-align: center;
+}
+
+time.icon strong
+{
+  position: absolute;
+  top: 0;
+  padding: 0.4em 0;
+  color: #fff;
+  background-color: #149a29;
+  border-bottom: 1px dashed #fff;
+  box-shadow: 0 2px 0 #149a29;
+}
+
+time.icon em
+{
+  position: absolute;
+  bottom: 0.3em;
+  color: #149a29;
+}
+
+time.icon span
+{
+  font-size: 2.8em;
+  letter-spacing: -0.05em;
+  padding-top: 0.8em;
+  color: #2f2f2f;
+}

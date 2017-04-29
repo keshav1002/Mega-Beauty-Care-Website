@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app = "myModule">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Example</title>
+    <link href="css/bootstrap.css" rel="stylesheet">  
+    <link rel="stylesheet" href="css\animate.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <style type="text/css">
+#quote-carousel {
+    padding: 0 10px 30px 10px;
+    margin-top: 60px;
+}
+#quote-carousel .carousel-control {
+    background: none;
+    color: #CACACA;
+    font-size: 2.3em;
+    text-shadow: none;
+    margin-top: 30px;
+}
+#quote-carousel .carousel-indicators {
+    position: relative;
+    right: 50%;
+    top: auto;
+    bottom: 0px;
+    margin-top: 20px;
+    margin-right: -19px;
+}
+#quote-carousel .carousel-indicators li {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    opacity: 0.4;
+    overflow: hidden;
+    transition: all .4s ease-in;
+    vertical-align: middle;
+}
+#quote-carousel .carousel-indicators .active {
+    width: 128px;
+    height: 128px;
+    opacity: 1;
+    transition: all .2s;
+}
+.item blockquote {
+    border-left: none;
+    margin: 0;
+}
+.item blockquote p:before {
+    content: "\f10d";
+    font-family: 'Fontawesome';
+    float: left;
+    margin-right: 10px;
+}
+    </style>
+  </head>
+  <body>
+    <!-- 1st Section Start Here -->
+    <div class="container-fluid">
+    <section id="workers" ng-controller = "workerController" >
+    <div class="row">
+        <div class="col-sm-5 col-md-4 " ng-repeat = "worker in workers" ng-show = "worker.available == 1">
+          <div class="thumbnail wow shake">
+            <img src="img\IMG_0124.JPG" alt="" class="workerImage">
+            <div class="caption">
+            <div>
+            	<h3 class="name">{{worker.name}}</h3>
+              	<p class="qualities">{{worker.qualities}}</p>
+              	<p class="available">Available</p>
+                </div>  
+            </div>
+          </div>
+        </div>
+     </div>
+    </section>
+    </div>
+    <!-- 1st section start here -->
+    <!-- 2nd Section Start Here -->
+    <div class="container-fluid">
+      <section id="comments" ng-controller = "commentController">
+        <div class="row">
+          <div class="col-sm-5 col-md-4  wow fadeInLeft" ng-repeat = "comment in comments">
+            <div class="thumbnail">
+              <img src="img\comment.png" alt="">
+              <div class="caption">
+                <div>
+                  <h3 class="name">Name : {{comment.name}}</h3>
+                  <p class="comment"><h3>Comment :</h3> {{comment.comment}}</p>
+                  <p class="time"><h4>Date :</h4> {{comment.timeStamp}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- 2nd secction end here -->
+    <!-- 3rd sectioin start here -->
+      <div class = "container-fluid">
+        <section ng-controller = "postingComments">
+          <div class="row">
+            <div calss = "col-sm-5 col-md-12">
+              <form class="form-horizontal">
+                <fieldset>
+                 
+                   <legend>Your Comments</legend>
+                     <div class="form-group">
+                     <label for="inputName" class="col-lg-2 control-label">    Name : </label>
+                     <div class="col-lg-10">
+                      <input type="text" class="form-control" id="inputEmail" placeholder="Name" ng-model = "name" >
+                    </div>
+                    <label for="textArea" class="col-lg-2 control-label">    Comment Here : </label>
+                    <div class="col-lg-10">
+                      <textarea class="form-control" rows="3" id="textArea" placeholder="Comment" ng-model = "comment"></textarea>
+                      <span class="help-block">Thanks for Your Complement
+                      </span>
+                    </div>
+                    <div class="col-lg-10 col-lg-offset-2">
+                      <button type="reset" class="btn btn-danger" >Cancel</button>
+                      <button type="submit" class="btn btn-success" ng-click="toForm()">Submit</button>
+                    </div>
+                     </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    <!-- 3rd section end here -->
+
+    <!-- 4th section start here -->
+    <div class="container-fluid">
+      <div class="row">
+           <div class="contact-address-section">
+                    <h3><i class="icon glyphicon glyphicon-home"></i>Our Office</h3>
+                    <address>
+                        ###################<br>
+                        Wellawattha,<br>
+                        Colombo-06.<br>
+                        <span class="icon glyphicon glyphicon-phone-alt"></span>&nbsp; +1234567890 / +1234567890<br>
+                        <span class="icon glyphicon glyphicon-phone"></span>&nbsp;+0123456789 / 44<br>
+                         <!-- add Google map here -->
+                        </div>
+                    </address>
+                </div>
+      </div>
+    </div>
+    <!-- 4th section end here -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" ng-controller = "commentController">
+                <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+                    <!-- Carousel Slides / Quotes -->
+                    <div class="carousel-inner text-center">
+
+                        <div class="item active">
+                            <blockquote>
+                                <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-2" ng-repeat="comment in comments|limitTo:1">
+                                        <p>{{comment.comment}}</p>
+                                        <small>{{comment.name}}</small>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+
+                        <div class="item" ng-repeat="comment in comments.slice(1, 3)">
+                            <blockquote>
+                                <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <p>{{comment.comment}}</p>
+                                        <small>{{comment.name}}</small>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                        
+                    </div>
+                    <!-- Bottom Carousel Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive " src="https://s3.amazonaws.com/uifaces/faces/twitter/mantia/128.jpg" alt="">
+                        </li>
+                        <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive" src="https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg" alt="">
+                        </li>
+                        <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive" src="https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg" alt="">
+                        </li>
+                    </ol>
+
+                    <!-- Carousel Buttons Next/Prev -->
+                    <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+                    <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-route.min.js"></script>
+    <script>
+       new WOW().init();
+    </script>
+    <script src="js\custom.js"></script>
+
+    </script>
+
+  </body>
+</html>
